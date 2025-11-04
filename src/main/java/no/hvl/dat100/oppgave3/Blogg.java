@@ -5,14 +5,18 @@ import no.hvl.dat100.oppgave1.*;
 
 public class Blogg {
 
-	// TODO: objektvariable 
+	// TODO: objektvariable
+    private Innlegg[] innlegstabell;
+    private int nesteLedig;
 
 	public Blogg() {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+        innlegstabell = new Innlegg[20];
+        nesteLedig = 0;
 	}
 
-	public Blogg(int lengde) {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+	public Blogg(int lengde){
+        innlegstabell = new Innlegg[lengde];
+        nesteLedig = 0;
 	}
 
 	public int getAntall() {
