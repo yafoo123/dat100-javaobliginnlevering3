@@ -71,12 +71,5 @@ public abstract class Innlegg {
 	public String toString() {
         return id + "\n" + bruker + "\n" + dato + "\n" + likes + "\n";
 	}
-	
-	// Metoden nedenfor er kun for valgfri oppgave 6
-	/*public String toHTML() {
-		
-		throw new UnsupportedOperationException(TODO.method());
-				
-	}
-	 */
+
 }
