@@ -20,35 +20,81 @@ public class Blogg {
 	}
 
 	public int getAntall() {
-		throw new UnsupportedOperationException(TODO.method());
+		int antall = 0;
+
+        for(int i = 0; i < innlegstabell.length; i++){
+            if(innlegstabell[i] != null){
+                antall++;
+            }
+        }
+
+        return antall;
 	}
 	
 	public Innlegg[] getSamling() {
-		throw new UnsupportedOperationException(TODO.method());
-
+        return innlegstabell;
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
+        int pos = -1;
 
-		throw new UnsupportedOperationException(TODO.method());
+        for(int i = 0; i < innlegstabell.length; i++){
+            if(innlegstabell[i] != null && innlegstabell[i].erLik(innlegg)){
+                return i;
+            }
+        }
+
+        return pos;
 	}
 
 	public boolean finnes(Innlegg innlegg) {
-		throw new UnsupportedOperationException(TODO.method());
+
+        for(int i = 0; i < innlegstabell.length; i++){
+            if(innlegstabell[i] != null && innlegg.getId() == innlegstabell[i].getId()){
+                return true;
+            }
+        }
+
+        return false;
 	}
 
 	public boolean ledigPlass() {
-		throw new UnsupportedOperationException(TODO.method());
 
+        for(int i = 0; i < innlegstabell.length; i++){
+            if(innlegstabell[i] == null){
+                return true;
+            }
+        }
+
+        return false;
 	}
 	
 	public boolean leggTil(Innlegg innlegg) {
 
-		throw new UnsupportedOperationException(TODO.method());
+        if(finnes(innlegg)){
+            return false;
+        }
+
+        for(int i = 0; i < innlegstabell.length; i++){
+            if(innlegstabell[i] == null){
+                innlegstabell[i] = innlegg;
+                return true;
+            }
+        }
+
+        return false;
 	}
-	
+
+    @Override
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+		String resultat = getAntall() + "\n";
+
+        for(int i = 0; i < innlegstabell.length; i++){
+            if(innlegstabell[i] != null){
+                resultat += innlegstabell[i].toString();
+            }
+        }
+        return resultat;
 	}
 
 	// valgfrie oppgaver nedenfor
@@ -73,4 +119,6 @@ public class Blogg {
 		throw new UnsupportedOperationException(TODO.method());
 
 	}
+
+
 }
